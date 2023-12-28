@@ -1,13 +1,14 @@
 package com.vh.curriculum_back.models.main_info.dto;
 
 import com.vh.curriculum_back.models.main_info.MainInformation;
+import com.vh.curriculum_back.models.vo.ExperienceVO;
+import java.util.List;
 
 public record ListagemMainInfoDto(Long id,
                                   String name,
                                   String surname,
-                                  String email,
-                                  String phone,
-                                  String city,
+                                  List<ExperienceVO> experienceVOS,
+
                                   String description) {
 
 
@@ -16,9 +17,7 @@ public record ListagemMainInfoDto(Long id,
                 mainInformation.getId(),
                 mainInformation.getName(),
                 mainInformation.getSurname(),
-                mainInformation.getEmail(),
-                mainInformation.getPhone(),
-                mainInformation.getCity(),
+                mainInformation.getExperienceVOS(),
                 mainInformation.getDescription()
         );
     }

@@ -35,7 +35,7 @@ public class TokenService {
     public String getSubject(String tokenJWT){
         try{
             var algorithm = Algorithm.HMAC256(secret);
-            return JWT.require(algorithm).withIssuer("API VH")
+            return JWT.require(algorithm).withIssuer("VH")
                     .build()
                     //por algum motivo quando testo no insonmia alguns espaços em branco vem no ctr+v por isso esse .trim() aqui
                     .verify(tokenJWT.trim())
