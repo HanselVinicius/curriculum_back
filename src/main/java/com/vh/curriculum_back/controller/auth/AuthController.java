@@ -3,9 +3,9 @@ package com.vh.curriculum_back.controller.auth;
 import com.vh.curriculum_back.models.Users.dtos.AuthDto;
 import com.vh.curriculum_back.models.Users.dtos.RegistrationDto;
 import com.vh.curriculum_back.service.auth.AuthenticationService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Description;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,14 +22,14 @@ public class AuthController {
 
 
     @PostMapping("/login")
-    @Description("Endpoint to login")
+    @Operation(description = "Endpoint to login")
     public ResponseEntity login(@RequestBody @Valid AuthDto authDto) {
         return ResponseEntity.ok().body(authService.authenticate(authDto));
     }
 
 
     @PostMapping("/register")
-    @Description("Endpoint to register")
+    @Operation(description = "Endpoint to register")
     public ResponseEntity register(@RequestBody @Valid RegistrationDto registrationDto) {
         if (!authService.register(registrationDto))
             return ResponseEntity.badRequest().build();

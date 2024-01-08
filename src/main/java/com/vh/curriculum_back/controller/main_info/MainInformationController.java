@@ -3,9 +3,9 @@ package com.vh.curriculum_back.controller.main_info;
 import com.vh.curriculum_back.models.main_info.MainInformation;
 import com.vh.curriculum_back.models.main_info.dto.MainInfoDto;
 import com.vh.curriculum_back.service.main_info.MainInformationService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Description;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -23,19 +23,19 @@ public class MainInformationController {
     private MainInformationService mainInformationService;
 
     @GetMapping
-    @Description("Pega todas as informações principais paginadas sobre mim.")
+    @Operation(description = "Pega todas as informações principais paginadas sobre mim.")
     public ResponseEntity getAll(@PageableDefault(size = 10, page = 0) Pageable pageable){
         return ResponseEntity.ok(mainInformationService.getAllPaginated(pageable));
     }
 
     @GetMapping("/{id}")
-    @Description("Pega uma informação principal sobre mim.")
+    @Operation(description = "Pega uma informação principal sobre mim.")
     public ResponseEntity get(@PathVariable Long id){
         return ResponseEntity.ok(mainInformationService.getOneById(id));
     }
 
     @PostMapping
-    @Description("Cria uma nova informação principal sobre mim.")
+    @Operation(description = "Cria uma nova informação principal sobre mim.")
     @Transactional
     @SecurityRequirement(name = "bearer-key")
     public ResponseEntity create(@RequestBody MainInfoDto createMainInfoDto, UriComponentsBuilder uriComponentsBuilder){
@@ -45,8 +45,9 @@ public class MainInformationController {
     }
 
 
+
     @PutMapping("/{id}")
-    @Description("Atualiza uma informação principal sobre mim.")
+    @Operation(description = "Atualiza uma informação principal sobre mim.")
     @Transactional
     @SecurityRequirement(name = "bearer-key")
     public ResponseEntity update(@PathVariable Long id, @RequestBody MainInfoDto createMainInfoDto){
@@ -54,7 +55,7 @@ public class MainInformationController {
     }
 
     @DeleteMapping("/{id}")
-    @Description("Deleta uma informação principal sobre mim.")
+    @Operation(description = "Deleta uma informação principal sobre mim.")
     @Transactional
     @SecurityRequirement(name = "bearer-key")
     public ResponseEntity delete(@PathVariable Long id){
