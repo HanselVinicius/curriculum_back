@@ -5,6 +5,7 @@ import com.vh.curriculum_back.models.vo.ExperienceVO;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Table(name = "main_information")
@@ -22,9 +23,9 @@ public class MainInformation {
     private String name;
     private String surname;
     private String description;
-    @ElementCollection
-    @CollectionTable(name = "experience_vos", joinColumns = @JoinColumn(name = "main_information_id"))
-    private List<ExperienceVO> experienceVOS;
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name = "main_information_id")
+    private List<ExperienceVO> experienceVOS = new ArrayList<>();
 
 
     public MainInformation(MainInfoDto dto){
