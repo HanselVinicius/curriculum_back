@@ -3,9 +3,11 @@ package com.vh.curriculum_back.models.vo;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.vh.curriculum_back.models.main_info.dto.CreateExperienceVoDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -16,12 +18,12 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class ExperienceVO {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
     private String company;
     private String role;
@@ -32,5 +34,14 @@ public class ExperienceVO {
     @JsonFormat(pattern = "dd-MM-yyyy")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate  endDate;
+
+    public ExperienceVO(CreateExperienceVoDto createExperienceVoDto) {
+        this.company = createExperienceVoDto.company();
+        this.role = createExperienceVoDto.role();
+        this.description = createExperienceVoDto.description();
+        this.startDate = createExperienceVoDto.startDate();
+        this.endDate = createExperienceVoDto.endDate();
+    }
+
 
 }

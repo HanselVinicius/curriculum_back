@@ -1,6 +1,7 @@
 package com.vh.curriculum_back.controller.main_info;
 
 import com.vh.curriculum_back.models.main_info.MainInformation;
+import com.vh.curriculum_back.models.main_info.dto.CreateMainInfoDto;
 import com.vh.curriculum_back.models.main_info.dto.MainInfoDto;
 import com.vh.curriculum_back.service.main_info.MainInformationService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -38,7 +39,7 @@ public class MainInformationController {
     @Operation(description = "Cria uma nova informação principal sobre mim.")
     @Transactional
     @SecurityRequirement(name = "bearer-key")
-    public ResponseEntity create(@RequestBody MainInfoDto createMainInfoDto, UriComponentsBuilder uriComponentsBuilder){
+    public ResponseEntity create(@RequestBody CreateMainInfoDto createMainInfoDto, UriComponentsBuilder uriComponentsBuilder){
         MainInformation mainInformation = this.mainInformationService.create(createMainInfoDto);
         URI endereco = uriComponentsBuilder.path("/v1/main-info/{id}").buildAndExpand(mainInformation.getId()).toUri();
         return ResponseEntity.created(endereco).body(mainInformation);

@@ -1,5 +1,6 @@
 package com.vh.curriculum_back.models.main_info;
 
+import com.vh.curriculum_back.models.main_info.dto.CreateMainInfoDto;
 import com.vh.curriculum_back.models.main_info.dto.MainInfoDto;
 import com.vh.curriculum_back.models.vo.ExperienceVO;
 import jakarta.persistence.*;
@@ -23,7 +24,9 @@ public class MainInformation {
     private String name;
     private String surname;
     private String description;
-    @OneToMany(cascade=CascadeType.ALL)
+    @OneToMany(
+            cascade=CascadeType.ALL,
+            orphanRemoval = true)
     @JoinColumn(name = "main_information_id")
     private List<ExperienceVO> experienceVOS = new ArrayList<>();
 
@@ -35,10 +38,11 @@ public class MainInformation {
         this.experienceVOS = dto.experienceVOS();
     }
 
-    public void update(MainInfoDto createMainInfoDto) {
-        if (createMainInfoDto.name() != null) this.name = createMainInfoDto.name();
-        if (createMainInfoDto.surname() != null) this.surname = createMainInfoDto.surname();
-        if (createMainInfoDto.description() != null) this.description = createMainInfoDto.description();
-        if (createMainInfoDto.experienceVOS() != null) this.experienceVOS = createMainInfoDto.experienceVOS();
+    public MainInformation(CreateMainInfoDto createMainInfoDto) {
+        this.name = createMainInfoDto.name();
+        this.surname = createMainInfoDto.surname();
+        this.description = createMainInfoDto.description();
+        createMainInfoDto.experienceVOS().forEach(createExperienceVoDto -> this.experienceVOS.add(new ExperienceVO(createExperienceVoDto)));
     }
+
 }
