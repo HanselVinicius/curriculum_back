@@ -1,8 +1,7 @@
-package com.vh.curriculum_back.models.Users;
+package com.vh.curriculum_back.models.users;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.vh.curriculum_back.models.Users.dtos.RegistrationDto;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;

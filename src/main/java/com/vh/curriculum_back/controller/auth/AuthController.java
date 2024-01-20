@@ -1,7 +1,7 @@
 package com.vh.curriculum_back.controller.auth;
 
-import com.vh.curriculum_back.models.Users.dtos.AuthDto;
-import com.vh.curriculum_back.models.Users.dtos.RegistrationDto;
+import com.vh.curriculum_back.models.users.dtos.AuthDto;
+import com.vh.curriculum_back.models.users.dtos.RegistrationDto;
 import com.vh.curriculum_back.service.auth.AuthenticationService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;

@@ -1,7 +1,7 @@
 package com.vh.curriculum_back.service.auth;
 
-import com.vh.curriculum_back.models.Users.UserRepository;
-import com.vh.curriculum_back.models.Users.dtos.RegistrationDto;
+import com.vh.curriculum_back.models.users.UserRepository;
+import com.vh.curriculum_back.models.users.dtos.RegistrationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

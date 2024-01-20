@@ -1,4 +1,4 @@
-package com.vh.curriculum_back.models.Users;
+package com.vh.curriculum_back.models.users;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

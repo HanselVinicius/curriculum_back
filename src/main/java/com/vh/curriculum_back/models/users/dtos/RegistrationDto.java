@@ -1,4 +1,4 @@
-package com.vh.curriculum_back.models.Users.dtos;
+package com.vh.curriculum_back.models.users.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 
