@@ -2,7 +2,7 @@ package com.vh.curriculum_back.models.main_info;
 
 import com.vh.curriculum_back.models.main_info.dto.CreateMainInfoDto;
 import com.vh.curriculum_back.models.main_info.dto.MainInfoDto;
-import com.vh.curriculum_back.models.vo.ExperienceVO;
+import com.vh.curriculum_back.models.vo.experience.ExperienceVO;
 import jakarta.persistence.*;
 import lombok.*;
 

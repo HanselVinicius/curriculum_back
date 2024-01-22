@@ -1,9 +1,6 @@
-package com.vh.curriculum_back.models.vo;
+package com.vh.curriculum_back.models.vo.experience;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.vh.curriculum_back.models.main_info.dto.CreateExperienceVoDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

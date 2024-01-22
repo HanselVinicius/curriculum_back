@@ -1,4 +1,4 @@
-package com.vh.curriculum_back.models.main_info.dto;
+package com.vh.curriculum_back.models.vo.experience;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;

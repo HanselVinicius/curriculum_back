@@ -10,12 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-@io.swagger.v3.oas.annotations.security.SecurityScheme(
-        name = "bearerAuth",
-        type = SecuritySchemeType.HTTP,
-        bearerFormat = "JWT",
-        scheme = "bearer"
-)
+
 @EnableWebMvc
 @Configuration
 public class SpringDocConfig {

@@ -1,7 +1,7 @@
 package com.vh.curriculum_back.models.main_info.dto;
 
 import com.vh.curriculum_back.models.main_info.MainInformation;
-import com.vh.curriculum_back.models.vo.ExperienceVO;
+import com.vh.curriculum_back.models.vo.experience.ExperienceVO;
 
 import java.util.List;
 
